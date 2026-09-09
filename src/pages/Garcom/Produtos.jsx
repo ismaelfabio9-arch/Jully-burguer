@@ -37,6 +37,7 @@ function Produtos() {
   const [novoNome, setNovoNome] = useState("");
   const [novaCategoria, setNovaCategoria] = useState("");
   const [precoNovoProduto, setPrecoNovoProduto] = useState("");
+  const [novaDescricao, setNovaDescricao] = useState("");
   const [segurandoProduto, setSegurandoProduto] = useState(null);
   const [produtoParaExcluir, setProdutoParaExcluir] = useState(null);
   const [erroProduto, setErroProduto] = useState("");
@@ -109,6 +110,7 @@ function Produtos() {
         nome: nomeTratado,
         categoria: categoriaTratada,
         preco: Number(precoNovoProduto),
+        descricao: novaDescricao.trim(),
         ativo: true,
         criadoEm: serverTimestamp(),
       },
@@ -142,6 +144,7 @@ function Produtos() {
     setNovoNome("");
     setNovaCategoria("");
     setPrecoNovoProduto("");
+    setNovaDescricao("");
     setErroProduto("");
     setAdicionando(false);
   }
@@ -641,6 +644,24 @@ function Produtos() {
                 value={precoNovoProduto}
                 onChange={(e) => setPrecoNovoProduto(e.target.value)}
               />
+
+              <textarea
+                placeholder="Descrição (ex: pão, blend 110g, queijo, salada e molho especial)"
+                value={novaDescricao}
+                onChange={(e) => setNovaDescricao(e.target.value)}
+                rows={2}
+                style={{
+                  width: "100%",
+                  padding: "13px 14px",
+                  borderRadius: "10px",
+                  border: "1px solid var(--border)",
+                  background: "var(--card)",
+                  color: "var(--text)",
+                  fontFamily: "inherit",
+                  fontSize: "14px",
+                  resize: "vertical",
+                }}
+              />
             </div>
 
             <div className="modal-fechar-dia-botoes">
@@ -781,6 +802,19 @@ function Produtos() {
                     ))}
                   </select>
                 </div>
+
+                {produto.descricao && (
+                  <p
+                    style={{
+                      margin: "2px 0 8px",
+                      fontSize: "12px",
+                      color: "var(--muted)",
+                      lineHeight: 1.4,
+                    }}
+                  >
+                    {produto.descricao}
+                  </p>
+                )}
 
                 {editando === produto.id ? (
                   <div style={{ display: "flex", gap: "6px" }}>

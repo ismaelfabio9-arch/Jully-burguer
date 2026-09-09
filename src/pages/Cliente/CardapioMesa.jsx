@@ -710,6 +710,11 @@ const esgotado = quantidadeEstoque <= 0;
                       <div key={item.id} className="cardapio-produto">
                         <div>
                           <strong>{item.nome}</strong>
+                          {item.descricao && (
+                            <span className="cardapio-produto-descricao">
+                              {item.descricao}
+                            </span>
+                          )}
                           <p>R$ {formatarMoeda(item.preco)}</p>
                           {esgotado && <small className="produto-esgotado">Esgotado</small>}
                         </div>

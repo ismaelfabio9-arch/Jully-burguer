@@ -467,3 +467,11 @@ body.dark .produto-esgotado {
     font-size: 20px;
   }
 }
+
+.cardapio-produto-descricao {
+  display: block;
+  font-size: 12px;
+  color: var(--muted, #6b7280);
+  line-height: 1.4;
+  margin: 2px 0 4px;
+}
