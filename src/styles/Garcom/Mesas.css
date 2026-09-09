@@ -7,7 +7,7 @@
   margin-bottom: 16px;
 }
 
-.mesas-header span { color: #16a34a; font-weight: 700; font-size: 13px; }
+.mesas-header span { color: #C9971F; font-weight: 700; font-size: 13px; }
 .mesas-header h1   { margin: 8px 0 4px; font-size: 27px; }
 .mesas-header p    { color: #6b7280; font-size: 13px; }
 
@@ -28,7 +28,7 @@
 }
 
 .mesas-resumo span   { display: block; font-size: 11px; color: #6b7280; }
-.mesas-resumo strong { display: block; margin-top: 4px; font-size: 20px; color: #16a34a; }
+.mesas-resumo strong { display: block; margin-top: 4px; font-size: 20px; color: #C9971F; }
 
 .grid-mesas {
   display: grid;
@@ -47,7 +47,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.035);
 }
 
-.mesa-card.aberta { border: 1.5px solid #22c55e; }
+.mesa-card.aberta { border: 1.5px solid #F4C43D; }
 
 .status-bolinha {
   position: absolute;
@@ -59,7 +59,7 @@
   background: #9ca3af;
 }
 
-.status-bolinha.aberta { background: #22c55e; }
+.status-bolinha.aberta { background: #F4C43D; }
 .status-bolinha.livre  { background: #9ca3af; }
 
 .mesa-card h3 { text-align: left; font-size: 13px; margin-bottom: 10px; }
@@ -69,8 +69,8 @@
   height: 40px;
   margin: 0 auto 8px;
   border-radius: 10px;
-  background: #e9fbea;
-  color: #16a34a;
+  background: #FDF3D9;
+  color: #C9971F;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,7 +78,7 @@
 
 .mesa-card.livre .mesa-icone { background: #f1f2f4; color: #6b7280; }
 
-.mesa-card p     { color: #16a34a; font-weight: 900; font-size: 16px; }
+.mesa-card p     { color: #C9971F; font-weight: 900; font-size: 16px; }
 .mesa-card.livre p { color: #374151; }
 .mesa-card small { color: #6b7280; font-size: 11px; }
 
@@ -93,8 +93,8 @@
 
 .mesa-editar-cliente {
   border: none;
-  background: rgba(34, 197, 94, 0.15);
-  color: #22c55e;
+  background: rgba(244, 196, 61, 0.15);
+  color: #F4C43D;
   width: 25px;
   height: 25px;
   border-radius: 999px;
@@ -105,7 +105,7 @@
   flex-shrink: 0;
 }
 
-.mesa-editar-cliente:hover { background: rgba(34, 197, 94, 0.25); }
+.mesa-editar-cliente:hover { background: rgba(244, 196, 61, 0.25); }
 
 /* ── DARK ── */
 
@@ -124,7 +124,7 @@ body.dark .mesa-card p { color: var(--green) !important; }
 body.dark .mesa-card.livre p { color: var(--muted) !important; }
 body.dark .mesa-icone { background: var(--green-bg) !important; color: var(--green) !important; }
 body.dark .mesa-card.livre .mesa-icone { background: var(--card-3) !important; color: var(--muted) !important; }
-body.dark .mesa-editar-cliente { background: rgba(34, 197, 94, 0.16) !important; color: var(--green) !important; }
+body.dark .mesa-editar-cliente { background: rgba(244, 196, 61, 0.16) !important; color: var(--green) !important; }
 /* ============================================================
    ORGANIZAÇÃO DE MESAS (adicionado)
    ============================================================ */
@@ -150,9 +150,9 @@ body.dark .mesa-editar-cliente { background: rgba(34, 197, 94, 0.16) !important;
 }
 
 .mesas-btn-organizar.ativo {
-  background: #22c55e;
-  border-color: #22c55e;
-  color: white;
+  background: #F4C43D;
+  border-color: #F4C43D;
+  color: #1A1200;
 }
 
 .mesas-header-acoes {
@@ -197,7 +197,7 @@ body.dark .mesas-btn-adicionar {
 }
 
 .mesa-card.alvo-troca {
-  border: 2px dashed #22c55e !important;
+  border: 2px dashed #F4C43D !important;
   background: #ecfdf3 !important;
 }
 

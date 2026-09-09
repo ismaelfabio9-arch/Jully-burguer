@@ -50,7 +50,7 @@
 
 .modal-fechar-dia-card h2     { margin: 0 0 14px; color: #ffffff; font-size: 30px; font-weight: 900; }
 .modal-fechar-dia-card p      { margin: 0 auto 18px; color: #a3a3a3; font-size: 18px; line-height: 1.5; max-width: 340px; }
-.modal-fechar-dia-card strong { display: block; color: #ef4444; font-size: 18px; margin-bottom: 26px; }
+.modal-fechar-dia-card strong { display: block; color: #F2445C; font-size: 18px; margin-bottom: 26px; }
 
 .modal-fechar-dia-botoes { display: flex; gap: 14px; }
 
@@ -65,7 +65,7 @@
 }
 
 .modal-btn-cancelar  { background: #27272a; color: white; }
-.modal-btn-confirmar { background: linear-gradient(135deg, #fb4b4b, #dc2626); color: white; }
+.modal-btn-confirmar { background: linear-gradient(135deg, #F2445C, #C22E45); color: white; }
 .modal-fechar-dia-botoes button:disabled { opacity: 0.7; cursor: not-allowed; }
 
 /* ── DARK ── */

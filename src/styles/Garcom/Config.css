@@ -7,7 +7,7 @@
   margin-bottom: 16px;
 }
 
-.config-header span { color: #16a34a; font-weight: 700; font-size: 13px; }
+.config-header span { color: #C9971F; font-weight: 700; font-size: 13px; }
 .config-header h1   { margin: 8px 0 4px; font-size: 27px; }
 .config-header p    { color: #6b7280; font-size: 13px; }
 
@@ -37,7 +37,7 @@
 
 .config-card h2 { margin: 0 0 3px; font-size: 18px; }
 .config-card p  { margin: 0 0 6px; color: #6b7280; font-size: 13px; }
-.config-card strong { color: #16a34a; font-size: 14px; }
+.config-card strong { color: #C9971F; font-size: 14px; }
 
 .config-btn {
   width: 100%;

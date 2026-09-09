@@ -23,7 +23,7 @@ function App() {
  useEffect(() => {
   const tema = localStorage.getItem("tema");
 
-  if (tema === "dark") {
+  if (tema !== "light") {
     document.body.classList.add("dark");
   }
 }, []);

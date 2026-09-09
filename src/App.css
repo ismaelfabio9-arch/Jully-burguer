@@ -4,21 +4,26 @@
    ============================================================ */
 :root {
   /* Tema Claro */
-  --bg: #f5f6f8;
+  --bg: #f7f5f0;
 
   --card: #ffffff;
   --card-2: #f3f4f6;
   --card-3: #e5e7eb;
 
-  --text: #111827;
+  --text: #1a1200;
   --muted: #6b7280;
 
   --border: #e5e7eb;
 
-  --green: #22c55e;
-  --green-bg: #dcfce7;
+  --brand: #F4C43D;
+  --brand-dark: #C9971F;
+  --brand-tint: #FDF3D9;
+  --brand-text: #1A1200;
 
-  --red: #ef4444;
+  --green: #F4C43D;
+  --green-bg: #FDF3D9;
+
+  --red: #F2445C;
   --orange: #f59e0b;
   --blue: #3b82f6;
 }
@@ -36,10 +41,15 @@ body.dark {
 
   --border: #2b2b2b;
 
-  --green: #22c55e;
-  --green-bg: rgba(34, 197, 94, 0.12);
+  --brand: #F4C43D;
+  --brand-dark: #C9971F;
+  --brand-tint: rgba(244, 196, 61, 0.15);
+  --brand-text: #1A1200;
 
-  --red: #ef4444;
+  --green: #F4C43D;
+  --green-bg: rgba(244, 196, 61, 0.12);
+
+  --red: #F2445C;
   --orange: #f59e0b;
   --blue: #3b82f6;
 }
@@ -50,9 +60,9 @@ body.dark {
 }
 
 body {
-  background: #f6f7f9;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #111827;
+  background: #f7f5f0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1a1200;
 }
 
 a {
@@ -71,7 +81,7 @@ a {
 .voltar {
   display: inline-block;
   margin-bottom: 18px;
-  color: #16a34a;
+  color: #C9971F;
   font-size: 14px;
   font-weight: 700;
 }
@@ -100,8 +110,8 @@ a {
 }
 
 .btn-verde {
-  background: #16a34a;
-  color: white;
+  background: #C9971F;
+  color: #1A1200;
 }
 
 .btn-cinza,
@@ -112,7 +122,7 @@ a {
 
 .btn-remover {
   border: none;
-  background: #ef4444;
+  background: #F2445C;
   color: white;
   font-weight: 700;
   cursor: pointer;
@@ -134,7 +144,7 @@ a {
 }
 
 .secao-titulo span {
-  color: #4f46e5;
+  color: #C9971F;
   font-size: 14px;
   font-weight: 700;
 }
@@ -179,7 +189,7 @@ a {
 }
 
 .switch input:checked + .slider {
-  background: #16a34a;
+  background: #C9971F;
 }
 
 .switch input:checked + .slider:before {
@@ -215,7 +225,7 @@ a {
 }
 
 .campo-busca:focus {
-  border-color: #16a34a;
+  border-color: #C9971F;
 }
 
 /* ── MODAL GLOBAL ── */
@@ -272,7 +282,7 @@ a {
 
 .modal-botoes .btn-remover {
   flex: 1;
-  background: linear-gradient(135deg, #fb4b4b, #dc2626);
+  background: linear-gradient(135deg, #F2445C, #C22E45);
   color: white;
   border: none;
   border-radius: 14px;
@@ -368,7 +378,7 @@ a {
 }
 
 .menu-inferior .ativo {
-  color: #4f46e5;
+  color: #C9971F;
 }
 /* ==========================================================
    SISTEMA GLOBAL DE TEMA

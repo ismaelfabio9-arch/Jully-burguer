@@ -160,8 +160,8 @@
 }
 
 .estoque-salvar {
-  background: #22c55e;
-  color: white;
+  background: #F4C43D;
+  color: #1A1200;
 }
 
 .estoque-zerar {
@@ -170,12 +170,12 @@
 }
 
 .estoque-excluir {
-  background: #ef4444;
+  background: #F2445C;
   color: white;
 }
 
 .estoque-baixo {
-  border: 1px solid #ef4444;
+  border: 1px solid #F2445C;
   box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.2);
 }
 
@@ -263,7 +263,7 @@
 }
 
 .estoque-item-acoes button:last-child {
-  background: #ef4444;
+  background: #F2445C;
 }
 
 /* ===== ESTOQUE BAIXO ===== */
@@ -272,7 +272,7 @@
   display: block;
   margin-top: 8px;
   margin-bottom: 10px;
-  color: #ef4444;
+  color: #F2445C;
   font-weight: 700;
 }
 
@@ -314,8 +314,8 @@
 }
 
 .estoque-btn-salvar {
-  background: #22c55e;
-  color: #fff;
+  background: #F4C43D;
+  color: #1A1200;
 }
 
 .estoque-btn-zerar {
@@ -324,7 +324,7 @@
 }
 
 .estoque-btn-excluir {
-  background: #ef4444;
+  background: #F2445C;
   color: #fff;
 }
 /* =========================
@@ -385,7 +385,7 @@
   height: 70px;
   margin: 0 auto 14px;
   border-radius: 50%;
-  background: rgba(34, 197, 94, 0.12);
+  background: rgba(244, 196, 61, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -424,7 +424,7 @@
 .estoque-modal-erro {
   display: block;
   margin-bottom: 12px;
-  color: #ef4444;
+  color: #F2445C;
 }
 
 .estoque-modal-botoes {
@@ -453,7 +453,7 @@
 }
 
 .estoque-modal-excluir {
-  background: #ef4444;
+  background: #F2445C;
   color: white;
 }
 
@@ -520,6 +520,6 @@ body.dark .estoque-modal-form input {
 
 .estoque-nome-erro {
   width: 100%;
-  color: #ef4444;
+  color: #F2445C;
   font-size: 11px;
 }

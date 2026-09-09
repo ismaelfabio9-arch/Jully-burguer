@@ -7,7 +7,7 @@
   margin-bottom: 16px;
 }
 
-.pedidos-header span { color: #16a34a; font-weight: 700; font-size: 13px; }
+.pedidos-header span { color: #C9971F; font-weight: 700; font-size: 13px; }
 .pedidos-header h1   { margin: 8px 0 4px; font-size: 27px; }
 .pedidos-header p    { color: #6b7280; font-size: 13px; }
 
@@ -35,7 +35,7 @@
 
 .pedido-topo h3     { margin: 4px 0; font-size: 20px; }
 .pedido-topo span   { display: block; color: #6b7280; font-size: 12px; }
-.pedido-tipo        { color: #16a34a; font-weight: 700; font-size: 13px; }
+.pedido-tipo        { color: #C9971F; font-weight: 700; font-size: 13px; }
 
 .pedido-topo strong {
   font-size: 12px;
@@ -47,7 +47,7 @@
 
 .status-novo     { color: #2563eb; background: #dbeafe; }
 .status-preparo  { color: #ca8a04; background: #fef3c7; }
-.status-entregue { color: #16a34a; background: #dcfce7; }
+.status-entregue { color: #C9971F; background: #dcfce7; }
 
 .pedido-horario {
   display: block;
@@ -70,7 +70,7 @@
 }
 
 .pedido-item-linha span   { flex: 1; }
-.pedido-item-linha strong { color: #16a34a; font-size: 14px; white-space: nowrap; }
+.pedido-item-linha strong { color: #C9971F; font-size: 14px; white-space: nowrap; }
 
 .pedido-total {
   margin-top: 12px;
@@ -81,7 +81,7 @@
 }
 
 .pedido-total span   { color: #6b7280; font-size: 14px; }
-.pedido-total strong { color: #16a34a; font-size: 17px; }
+.pedido-total strong { color: #C9971F; font-size: 17px; }
 
 .pedido-acoes       { margin-top: 12px; display: flex; gap: 8px; }
 .pedido-acoes button {

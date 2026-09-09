@@ -73,7 +73,7 @@
 
 .relatorio-resumo-card strong { display: block; margin-top: 8px; font-size: 22px; }
 .relatorio-resumo-card.destaque { background: #dcfce7; border-color: #86efac; }
-.relatorio-resumo-card.destaque strong { color: #16a34a; }
+.relatorio-resumo-card.destaque strong { color: #C9971F; }
 
 .relatorio-secao { margin-top: 24px; }
 .relatorio-secao h2 { margin-bottom: 12px; font-size: 24px; }
@@ -91,7 +91,7 @@
 
 .relatorio-destaques strong,
 .relatorio-tipo-grid strong { display: block; margin: 6px 0; font-size: 20px; }
-.relatorio-destaques p      { color: #16a34a; font-weight: 700; }
+.relatorio-destaques p      { color: #C9971F; font-weight: 700; }
 
 .relatorio-tabela-wrapper { overflow-x: auto; border-radius: 16px; border: 1px solid #e5e7eb; }
 .relatorio-tabela { width: 100%; border-collapse: collapse; }
@@ -151,11 +151,11 @@ body.dark .relatorio-tipo-grid > div {
 
 body.dark .relatorio-resumo-card.destaque {
   background: rgba(22, 163, 74, 0.18) !important;
-  border-color: #16a34a !important;
+  border-color: #C9971F !important;
 }
 
 body.dark .relatorio-resumo-card.destaque strong,
-body.dark .relatorio-destaques p { color: #22c55e !important; }
+body.dark .relatorio-destaques p { color: #F4C43D !important; }
 
 body.dark .relatorio-tabela-wrapper { border: 1px solid var(--border) !important; }
 body.dark .relatorio-tabela th  { background: #101010 !important; color: #f0f0f0 !important; }

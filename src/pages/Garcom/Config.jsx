@@ -255,7 +255,7 @@ await addDoc(collection(db, "relatorioGerencial"), fechamentoDoDia);
         <label className="switch">
           <input
             type="checkbox"
-            defaultChecked={localStorage.getItem("tema") === "dark"}
+            defaultChecked={localStorage.getItem("tema") !== "light"}
             onChange={(e) => {
               if (e.target.checked) {
                 localStorage.setItem("tema", "dark");
