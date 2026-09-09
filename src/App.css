@@ -78,6 +78,20 @@ a {
   padding: 22px 16px 95px;
 }
 
+@media (min-width: 700px) {
+  .container {
+    max-width: 680px;
+    padding: 28px 24px 40px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .container {
+    max-width: 1040px;
+    padding: 32px 32px 40px;
+  }
+}
+
 .voltar {
   display: inline-block;
   margin-bottom: 18px;
@@ -355,6 +369,17 @@ a {
   transform: translateX(-50%);
   width: 100%;
   max-width: 430px;
+}
+
+@media (min-width: 700px) {
+  .menu-inferior { max-width: 680px; }
+}
+
+@media (min-width: 1100px) {
+  .menu-inferior { max-width: 1040px; }
+}
+
+.menu-inferior {
   background: white;
   padding: 10px 0 14px;
   display: grid;
