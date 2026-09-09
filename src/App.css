@@ -1,0 +1,495 @@
+/* ============================================================
+   APP.CSS — ESTILOS GLOBAIS
+   Apenas o que é compartilhado entre múltiplas páginas
+   ============================================================ */
+:root {
+  /* Tema Claro */
+  --bg: #f5f6f8;
+
+  --card: #ffffff;
+  --card-2: #f3f4f6;
+  --card-3: #e5e7eb;
+
+  --text: #111827;
+  --muted: #6b7280;
+
+  --border: #e5e7eb;
+
+  --green: #22c55e;
+  --green-bg: #dcfce7;
+
+  --red: #ef4444;
+  --orange: #f59e0b;
+  --blue: #3b82f6;
+}
+
+body.dark {
+  /* Tema Escuro */
+  --bg: #070707;
+
+  --card: #111111;
+  --card-2: #181818;
+  --card-3: #222222;
+
+  --text: #ffffff;
+  --muted: #9ca3af;
+
+  --border: #2b2b2b;
+
+  --green: #22c55e;
+  --green-bg: rgba(34, 197, 94, 0.12);
+
+  --red: #ef4444;
+  --orange: #f59e0b;
+  --blue: #3b82f6;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f6f7f9;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111827;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ── CONTAINER BASE ── */
+
+.container {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 22px 16px 95px;
+}
+
+.voltar {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #16a34a;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* ── CARDS BASE (compartilhado) ── */
+
+.card-principal {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.035);
+  padding: 18px;
+  margin-bottom: 14px;
+}
+
+/* ── BOTÕES GLOBAIS ── */
+
+.btn-verde,
+.btn-cinza,
+.config-btn {
+  border: none;
+  border-radius: 14px;
+  padding: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-verde {
+  background: #16a34a;
+  color: white;
+}
+
+.btn-cinza,
+.config-btn {
+  background: #eef0f3;
+  color: #111827;
+}
+
+.btn-remover {
+  border: none;
+  background: #ef4444;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 14px;
+}
+
+/* ── SEÇÃO TÍTULO ── */
+
+.secao-titulo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 18px 0 12px;
+}
+
+.secao-titulo h2 {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.secao-titulo span {
+  color: #4f46e5;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* ── SWITCH ── */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 54px;
+  height: 30px;
+  flex-shrink: 0;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #d1d5db;
+  border-radius: 999px;
+  transition: 0.25s;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  left: 4px;
+  bottom: 4px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.25s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+.switch input:checked + .slider {
+  background: #16a34a;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* ── TOAST ── */
+
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111827;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-size: 14px;
+  z-index: 99999;
+}
+
+/* ── CAMPO BUSCA ── */
+
+.campo-busca {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  background: white;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  outline: none;
+}
+
+.campo-busca:focus {
+  border-color: #16a34a;
+}
+
+/* ── MODAL GLOBAL ── */
+
+.modal-fundo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-card {
+  background: white;
+  padding: 28px 24px;
+  border-radius: 20px;
+  max-width: 340px;
+  width: 90%;
+  text-align: center;
+}
+
+.modal-card h2 {
+  margin-bottom: 8px;
+  font-size: 1.4rem;
+}
+
+.modal-card p {
+  color: #6b7280;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.modal-botoes {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.modal-botoes .btn-cancelar {
+  flex: 1;
+  background: #27272a;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  padding: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.modal-botoes .btn-remover {
+  flex: 1;
+  background: linear-gradient(135deg, #fb4b4b, #dc2626);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  padding: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ── MENU LATERAL ── */
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 9998;
+}
+
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 270px;
+  height: 100vh;
+  background: white;
+  z-index: 9999;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 8px 0 30px rgba(0, 0, 0, 0.18);
+}
+
+.menu-lateral-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.menu-lateral-topo h2 {
+  font-size: 20px;
+}
+
+.menu-lateral-topo button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-lateral a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #111827;
+  padding: 13px 10px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.menu-lateral a:hover {
+  background: #f3f4f6;
+}
+
+/* ── MENU INFERIOR ── */
+
+.menu-inferior {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  background: white;
+  padding: 10px 0 14px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid #edf0f3;
+  box-shadow: 0 -4px 14px rgba(0, 0, 0, 0.04);
+  z-index: 9999;
+}
+
+.menu-inferior a,
+.menu-inferior div {
+  text-align: center;
+  color: #6b7280;
+  font-size: 19px;
+}
+
+.menu-inferior span {
+  display: block;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.menu-inferior .ativo {
+  color: #4f46e5;
+}
+/* ==========================================================
+   SISTEMA GLOBAL DE TEMA
+   Colar no FINAL do App.css
+========================================================== */
+
+body {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+body,
+.container,
+.app-ref {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  color: var(--text);
+}
+
+body p,
+body span,
+body small {
+  color: var(--muted);
+}
+
+body a {
+  color: inherit;
+}
+
+body input,
+body select,
+body textarea {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+body input::placeholder,
+body textarea::placeholder {
+  color: var(--muted);
+}
+
+body button {
+  font-family: inherit;
+}
+
+body.dark .card-principal,
+body.dark .modal-card,
+body.dark .summary-ref,
+body.dark .table-card-ref,
+body.dark .notification-card-ref,
+body.dark .estoque-card,
+body.dark .pedido-card,
+body.dark .produto-card,
+body.dark .config-card,
+body.dark .historico-card,
+body.dark .relatorio-card {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+}
+
+body.dark .campo-busca,
+body.dark input,
+body.dark textarea,
+body.dark select {
+  background: var(--card-2) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+}
+
+body.dark .menu-lateral {
+  background: var(--card) !important;
+}
+
+body.dark .menu-lateral a {
+  color: var(--text) !important;
+}
+
+body.dark .menu-lateral a:hover {
+  background: var(--card-2) !important;
+}
+
+body.dark .menu-inferior {
+  background: var(--card) !important;
+  border-top: 1px solid var(--border) !important;
+}
+
+body.dark .menu-inferior a,
+body.dark .menu-inferior div {
+  color: var(--muted) !important;
+}
+
+body.dark .menu-inferior .ativo {
+  color: var(--green) !important;
+}
+
+body.dark .btn-cinza,
+body.dark .config-btn {
+  background: var(--card-2) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+}
+
+body.dark .toast {
+  background: var(--card) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+}
+
+body.dark .modal-card p,
+body.dark p,
+body.dark span,
+body.dark small {
+  color: var(--muted);
+}

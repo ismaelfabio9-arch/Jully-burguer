@@ -1,0 +1,469 @@
+.cardapio-cliente-page {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: white;
+  padding: 20px;
+}
+
+.cardapio-cliente-card {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #141414;
+  border-radius: 18px;
+  padding: 22px;
+  border: 1px solid #2a2a2a;
+}
+
+.cardapio-cliente-card span {
+  color: #22c55e;
+  font-weight: 700;
+}
+
+.cardapio-cliente-card h1 {
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.cardapio-cliente-card p {
+  color: #b3b3b3;
+}
+
+.cardapio-categoria {
+  margin-top: 25px;
+}
+
+.cardapio-categoria h2 {
+  margin-bottom: 12px;
+  border-bottom: 1px solid #2a2a2a;
+  padding-bottom: 8px;
+}
+
+.cardapio-produto {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #242424;
+}
+
+.cardapio-produto strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.cardapio-controle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cardapio-controle button {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 8px;
+  background: #22c55e;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.cardapio-controle span {
+  min-width: 20px;
+  text-align: center;
+  color: white;
+}
+
+.cardapio-total {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 22px;
+}
+
+.cardapio-btn-principal {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #22c55e;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cardapio-btn-secundario {
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cardapio-mensagem {
+  margin-top: 15px;
+  text-align: center;
+  color: #22c55e;
+  font-weight: bold;
+}
+.cardapio-header {
+  position: sticky;
+  top: 0;
+  background: #141414;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #2a2a2a;
+  z-index: 10;
+}
+
+.cardapio-garcom-btn {
+  width: 100%;
+  margin-top: 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cardapio-produto {
+  background: #1c1c1c;
+  border: 1px solid #2f2f2f;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.cardapio-categoria {
+  margin-top: 25px;
+}
+
+.cardapio-footer {
+  position: sticky;
+  bottom: 0;
+  background: #141414;
+  padding: 15px;
+  border-top: 1px solid #2a2a2a;
+  margin-top: 20px;
+}
+
+.cardapio-total-valor {
+  font-size: 24px;
+  color: #22c55e;
+  font-weight: bold;
+}
+.cardapio-categoria-btn {
+  width: 100%;
+  background: #1c1c1c;
+  color: white;
+  border: 1px solid #2f2f2f;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.cardapio-categoria-btn span {
+  color: white;
+}
+
+.cardapio-categoria-btn strong {
+  color: #22c55e;
+}
+
+.cardapio-categoria-btn:hover {
+  background: #242424;
+}
+
+.cardapio-produto {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.cardapio-footer {
+  border-radius: 16px 16px 0 0;
+}
+.cardapio-produto {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1f1f1f;
+  border: 1px solid #333;
+  border-radius: 16px;
+  padding: 16px;
+  margin: 10px 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+}
+
+.cardapio-produto strong {
+  font-size: 16px;
+}
+
+.cardapio-produto p {
+  margin-top: 6px;
+  color: #22c55e;
+  font-weight: bold;
+}
+
+.cardapio-controle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cardapio-controle button {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: none;
+  background: #22c55e;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cardapio-controle span {
+  min-width: 22px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+.cardapio-resumo {
+  margin-top: 20px;
+  background: #101010;
+  border: 1px solid #2f2f2f;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.cardapio-resumo h3 {
+  margin-bottom: 12px;
+  color: white;
+}
+
+.cardapio-resumo-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #252525;
+}
+
+.cardapio-resumo-item:last-child {
+  border-bottom: none;
+}
+
+.cardapio-resumo-item span {
+  color: #d1d5db;
+}
+
+.cardapio-resumo-item strong {
+  color: #22c55e;
+  white-space: nowrap;
+}
+
+.cardapio-btn-pagar {
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #f59e0b;
+  color: #111827;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.cardapio-resumo {
+  max-height: 180px;
+  overflow-y: auto;
+}
+.modal-nome-cliente {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 999;
+}
+
+.modal-nome-card {
+  width: 100%;
+  max-width: 380px;
+  background: #171717;
+  border: 1px solid #2f2f2f;
+  border-radius: 20px;
+  padding: 24px;
+  text-align: center;
+}
+
+.modal-nome-card h2 {
+  margin-bottom: 8px;
+  color: white;
+}
+
+.modal-nome-card p {
+  color: #b3b3b3;
+  margin-bottom: 18px;
+}
+
+.modal-nome-card input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  background: #0f0f0f;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.modal-nome-botoes {
+  display: flex;
+  gap: 10px;
+}
+
+.modal-nome-botoes button {
+  flex: 1;
+  padding: 13px;
+  border-radius: 12px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-nome-botoes button:first-child {
+  background: #2a2a2a;
+  color: white;
+}
+
+.modal-nome-botoes button:last-child {
+  background: #22c55e;
+  color: white;
+}
+.formas-pagamento {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.formas-pagamento button {
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  background: #101010;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.formas-pagamento button.ativo {
+  background: #22c55e;
+  border-color: #22c55e;
+}
+.produto-esgotado {
+  display: inline-block;
+  margin-top: 4px;
+  color: #e11d48;
+  font-weight: 800;
+  font-size: 0.78rem;
+}
+
+body.dark .produto-esgotado {
+  color: #fb7185;
+}
+
+.cardapio-controle button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Organização das categorias no cardápio da mesa */
+.cardapio-categoria {
+  position: relative;
+  touch-action: pan-y;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.cardapio-categoria.arrastando {
+  opacity: 0.55;
+  transform: scale(0.985);
+  z-index: 20;
+}
+
+.cardapio-categoria.sobre .cardapio-categoria-btn {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.16);
+}
+
+.cardapio-categoria-btn {
+  gap: 12px;
+  min-width: 0;
+  touch-action: pan-y;
+}
+
+.cardapio-categoria-nome {
+  min-width: 0;
+  flex: 1;
+  text-align: left;
+  overflow-wrap: anywhere;
+  line-height: 1.25;
+}
+
+.cardapio-categoria-direita {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.cardapio-categoria-arraste {
+  color: #8b8b8b !important;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: -3px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+@media (max-width: 600px) {
+  .cardapio-cliente-page {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    overflow-x: hidden;
+  }
+
+  .cardapio-cliente-card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .cardapio-categoria-btn {
+    padding: 14px 12px;
+    font-size: 16px;
+  }
+
+  .cardapio-categoria-arraste {
+    font-size: 20px;
+  }
+}

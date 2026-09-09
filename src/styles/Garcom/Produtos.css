@@ -1,0 +1,434 @@
+.produto-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.035);
+}
+
+.produto-info strong { font-size: 15px; }
+.produto-info span   { color: #16a34a; }
+
+.contador span { color: #111827; }
+
+.produto-mini-btn {
+  border: none;
+  border-radius: 999px;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  font-weight: 900;
+  background: #22c55e;
+  color: white;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.produto-modal-form {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+  margin: 14px 0;
+}
+
+.produto-modal-form input {
+  width: 100%;
+  padding: 13px 14px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #111827;
+  font-size: 15px;
+  outline: none;
+}
+
+.produto-modal-form input:focus { border-color: #22c55e; }
+
+@media (max-width: 600px) {
+  .produto-form-mini { grid-template-columns: 1fr; }
+}
+
+/* ── DARK ── */
+
+body.dark .produto-card {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: none !important;
+}
+
+body.dark .produto-info strong { color: var(--text) !important; }
+body.dark .produto-info span   { color: var(--green) !important; }
+body.dark .contador span       { color: var(--text) !important; }
+
+body.dark .produto-modal-form input {
+  background: #111827 !important;
+  color: #ffffff !important;
+  border-color: #374151 !important;
+}
+
+body.dark .produto-modal-form input::placeholder { color: #9ca3af !important; }
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.modal-card {
+  width: 100%;
+  max-width: 380px;
+  background: #151515;
+  border: 1px solid #2a2a2a;
+  border-radius: 18px;
+  padding: 24px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.modal-card h2 {
+  margin: 10px 0;
+  font-size: 24px;
+}
+
+.modal-card p {
+  color: #b7b7b7;
+  margin: 6px 0;
+}
+
+.modal-card strong {
+  color: #ffffff;
+}
+
+.modal-alerta {
+  color: #ffffff !important;
+  font-weight: 800;
+}
+
+.modal-icon {
+  font-size: 34px;
+}
+
+.modal-acoes {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.btn-cancelar,
+.btn-excluir {
+  flex: 1;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.btn-cancelar {
+  background: #2a2a2a;
+  color: white;
+}
+
+.btn-excluir {
+  background: #ef4444;
+  color: white;
+}
+.modal-fechar-dia {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.modal-fechar-dia-card {
+  width: 100%;
+  max-width: 380px;
+  background: #151515;
+  border: 1px solid #2a2a2a;
+  border-radius: 18px;
+  padding: 24px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.modal-fechar-dia-icone {
+  font-size: 34px;
+  margin-bottom: 8px;
+}
+
+.modal-fechar-dia-card h2 {
+  margin: 8px 0;
+  font-size: 24px;
+}
+
+.modal-fechar-dia-card p {
+  color: #b7b7b7;
+  margin: 6px 0;
+}
+
+.modal-fechar-dia-card strong {
+  color: white;
+}
+
+.modal-fechar-dia-botoes {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.modal-btn-cancelar,
+.modal-btn-confirmar {
+  flex: 1;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.modal-btn-cancelar {
+  background: #2a2a2a;
+  color: white;
+}
+
+.modal-btn-confirmar {
+  background: #22c55e;
+  color: white;
+}
+/* ============================================================
+   GESTÃO DE CATEGORIAS (adicionado)
+   ============================================================ */
+
+.produtos-categoria-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.produto-linha-editavel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.produto-linha-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.produto-select-categoria {
+  width: fit-content;
+  max-width: 100%;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  color: #6b7280;
+  font-size: 11px;
+}
+
+.categorias-painel {
+  padding: 16px;
+}
+
+.categorias-painel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.categorias-painel-header h3 { margin: 0; }
+
+.categorias-dica {
+  color: #6b7280;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.categorias-vazio {
+  color: #6b7280;
+  font-size: 13px;
+  padding: 8px 0;
+}
+
+.categorias-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.categoria-linha {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: grab;
+}
+
+.categoria-linha.sobre {
+  border-color: #22c55e;
+  background: #ecfdf3;
+}
+
+.categoria-alca {
+  color: #9ca3af;
+  font-size: 16px;
+  cursor: grab;
+  user-select: none;
+}
+
+.categoria-nome {
+  flex: 1;
+  font-weight: 700;
+  font-size: 14px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.categoria-contagem {
+  color: #6b7280;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+.categoria-acoes {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.categoria-acoes button {
+  border: none;
+  background: #eef0f3;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.categoria-acoes button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.categoria-btn-excluir {
+  background: rgba(239, 68, 68, 0.12) !important;
+}
+
+.produto-modal-card select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #111827;
+  font-size: 14px;
+}
+
+.opcao-radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #e5e7eb;
+  text-align: left;
+}
+
+/* ── DARK ── */
+
+body.dark .categoria-linha {
+  background: var(--card-2) !important;
+  border-color: var(--border) !important;
+}
+
+body.dark .categoria-linha.sobre {
+  border-color: var(--green) !important;
+  background: var(--green-bg) !important;
+}
+
+body.dark .categoria-nome { color: var(--text) !important; }
+body.dark .categoria-contagem { color: var(--muted) !important; }
+body.dark .categoria-acoes button { background: var(--card-3) !important; color: var(--text) !important; }
+body.dark .produto-select-categoria {
+  background: var(--card-2) !important;
+  color: var(--muted) !important;
+  border-color: var(--border) !important;
+}
+body.dark .produto-modal-card select {
+  background: #111827 !important;
+  color: #ffffff !important;
+  border-color: #374151 !important;
+}
+
+/* ============================================================
+   RENOMEAR PRODUTO (adicionado)
+   ============================================================ */
+
+.produto-nome-clicavel {
+  cursor: pointer;
+  color: #111827;
+  font-size: 14px;
+}
+
+.produto-nome-editando {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.produto-nome-editando input {
+  flex: 1;
+  min-width: 100px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.produto-nome-cancelar {
+  border: none;
+  background: #f1f2f4;
+  color: #6b7280;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.produto-nome-erro {
+  width: 100%;
+  color: #ef4444;
+  font-size: 11px;
+}
+
+body.dark .produto-nome-clicavel { color: var(--text) !important; }
+body.dark .produto-nome-editando input {
+  background: #111827 !important;
+  color: #ffffff !important;
+  border-color: #374151 !important;
+}
+body.dark .produto-nome-cancelar { background: var(--card-3) !important; color: var(--muted) !important; }

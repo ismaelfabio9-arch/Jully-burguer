@@ -1,0 +1,8 @@
+{
+  "name": "jully-burguer",
+  "compatibility_date": "2025-06-05",
+  "assets": {
+    "directory": "./build",
+    "not_found_handling": "single-page-application"
+  }
+}

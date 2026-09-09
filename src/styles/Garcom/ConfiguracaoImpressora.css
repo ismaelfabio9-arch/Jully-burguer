@@ -1,0 +1,67 @@
+.impressora-aviso {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #92400e;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.impressora-card {
+  align-items: center;
+}
+
+.impressora-form {
+  display: grid;
+  gap: 12px;
+}
+
+.impressora-campo {
+  display: grid;
+  gap: 6px;
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 700;
+}
+
+.impressora-campo input,
+.impressora-campo select {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.impressora-acoes {
+  display: flex;
+  gap: 10px;
+  margin: 16px 0 24px;
+}
+
+.impressora-acoes button {
+  flex: 1;
+}
+
+/* ── DARK ── */
+
+body.dark .impressora-aviso {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+}
+
+body.dark .impressora-campo {
+  color: var(--muted) !important;
+}
+
+body.dark .impressora-campo input,
+body.dark .impressora-campo select {
+  background: #111827 !important;
+  color: #ffffff !important;
+  border-color: #374151 !important;
+}

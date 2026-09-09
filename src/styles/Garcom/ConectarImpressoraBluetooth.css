@@ -1,0 +1,91 @@
+.bt-aviso {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.bt-aviso-erro {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #b91c1c;
+}
+
+.bt-btn-largo {
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 14px;
+}
+
+.bt-status-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.bt-status-card p {
+  margin: 2px 0 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.bt-mono {
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  color: #374151;
+  word-break: break-all;
+  line-height: 1.6;
+}
+
+.bt-resultado-teste {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #374151;
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.bt-servico-bloco {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.bt-servico-bloco:last-child {
+  border-bottom: none;
+}
+
+.bt-servico-titulo {
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.bt-caracteristica {
+  color: #6b7280;
+}
+
+/* ── DARK ── */
+
+body.dark .bt-aviso {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: #93c5fd;
+}
+
+body.dark .bt-aviso-erro {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+body.dark .bt-status-card p { color: var(--muted) !important; }
+body.dark .bt-mono { color: var(--text) !important; }
+body.dark .bt-resultado-teste { background: var(--card-2) !important; color: var(--text) !important; }
+body.dark .bt-servico-bloco { border-color: var(--border) !important; }
+body.dark .bt-caracteristica { color: var(--muted) !important; }
