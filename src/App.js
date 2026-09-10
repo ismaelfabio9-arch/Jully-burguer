@@ -17,6 +17,7 @@ import HistoricoMesas from "./pages/Garcom/HistoricoMesas";
 import RelatorioGerencial from "./pages/Garcom/RelatorioGerencial";
 import CardapioMesa from "./pages/Cliente/CardapioMesa";
 import Estoque from "./pages/Garcom/Estoque";
+import SeedCardapio from "./pages/Garcom/SeedCardapio";
 
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
         <Route path="/mesa/:id" element={<MesaDetalhe />} />
         <Route path="/viagem" element={<Viagem />} />
         <Route path="/produtos" element={<Produtos />} />
+        <Route path="/seed-cardapio" element={<SeedCardapio />} />
       </Routes>
     </BrowserRouter>
   );
