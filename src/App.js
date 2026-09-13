@@ -18,6 +18,7 @@ import RelatorioGerencial from "./pages/Garcom/RelatorioGerencial";
 import CardapioMesa from "./pages/Cliente/CardapioMesa";
 import Estoque from "./pages/Garcom/Estoque";
 import SeedCardapio from "./pages/Garcom/SeedCardapio";
+import AplicarFotosCardapio from "./pages/Garcom/AplicarFotosCardapio";
 
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
         <Route path="/viagem" element={<Viagem />} />
         <Route path="/produtos" element={<Produtos />} />
         <Route path="/seed-cardapio" element={<SeedCardapio />} />
+        <Route path="/aplicar-fotos" element={<AplicarFotosCardapio />} />
       </Routes>
     </BrowserRouter>
   );
