@@ -165,9 +165,9 @@
   position: relative;
   background: white;
   border: 1px solid #e5e7eb;
-  border-radius: 10px;
+  border-radius: 18px;
   min-height: 128px;
-  padding: 12px 9px;
+  padding: 14px 9px;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.035);
 }
@@ -193,12 +193,15 @@
 }
 
 .table-icon-ref {
-  width: 40px;
-  height: 40px;
-  margin: 0 auto 8px;
-  border-radius: 10px;
+  width: 56px;
+  height: 56px;
+  margin: 4px auto 10px;
+  border-radius: 50%;
   background: #FDF3D9;
+  border: 3px solid #F4C43D;
   color: #C9971F;
+  font-size: 20px;
+  font-weight: 900;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -206,6 +209,7 @@
 
 .table-card-ref.livre .table-icon-ref {
   background: #f1f2f4;
+  border-color: #d7dbe1;
   color: #6b7280;
 }
 
@@ -336,9 +340,9 @@ body.dark .table-card-ref.livre strong { color: var(--muted) !important; }
 
 body.dark .icon-circle-ref.green,
 body.dark .icon-square-ref.green,
-body.dark .table-icon-ref { background: var(--green-bg) !important; color: var(--green) !important; }
+body.dark .table-icon-ref { background: var(--green-bg) !important; color: var(--green) !important; border-color: var(--green) !important; }
 
-body.dark .table-card-ref.livre .table-icon-ref { background: var(--card-3) !important; color: var(--muted) !important; }
+body.dark .table-card-ref.livre .table-icon-ref { background: var(--card-3) !important; color: var(--muted) !important; border-color: var(--border) !important; }
 body.dark .icon-circle-ref.purple { background: rgba(244, 196, 61, 0.14) !important; color: var(--brand, #F4C43D) !important; }
 body.dark .icon-circle-ref.orange { background: rgba(242, 68, 92, 0.14) !important; color: var(--red, #F2445C) !important; }
 .toast-pagamento-garcom {

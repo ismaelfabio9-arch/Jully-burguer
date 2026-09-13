@@ -608,11 +608,16 @@ function Dashboard() {
             >
               <span className={`table-dot-ref ${mesa.status}`}></span>
 
+              <div className={`table-icon-ref ${mesa.status}`}>
+                {modoOrganizar ? (
+                  <span style={{ fontSize: 18 }}>⠿</span>
+                ) : (
+                  mesa.numero
+                )}
+              </div>
+
               <div className="mesa-nome-linha">
-                <h3>
-                  Mesa {mesa.numero}
-                  {cliente ? ` - ${cliente}` : ""}
-                </h3>
+                <h3>{cliente || `Mesa ${mesa.numero}`}</h3>
 
                 {!modoOrganizar && (
                   <button
@@ -622,14 +627,6 @@ function Dashboard() {
                   >
                     <Pencil size={13} />
                   </button>
-                )}
-              </div>
-
-              <div className={`table-icon-ref ${mesa.status}`}>
-                {modoOrganizar ? (
-                  <span style={{ fontSize: 18 }}>⠿</span>
-                ) : (
-                  <Table2 size={29} strokeWidth={2.4} />
                 )}
               </div>
 

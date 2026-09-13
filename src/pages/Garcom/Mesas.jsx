@@ -408,11 +408,12 @@ function Mesas() {
             >
               <div className={`status-bolinha ${mesa.status}`}></div>
 
+              <div className={`mesa-circulo ${mesa.status}`}>
+                {modoOrganizar ? "⠿" : mesa.numero}
+              </div>
+
               <div className="mesa-nome-linha">
-                <h3>
-                  Mesa {mesa.numero}
-                  {mesa.cliente ? ` - ${mesa.cliente}` : ""}
-                </h3>
+                <h3>{mesa.cliente ? mesa.cliente : `Mesa ${mesa.numero}`}</h3>
 
                 {!modoOrganizar && (
                   <button
@@ -424,8 +425,6 @@ function Mesas() {
                   </button>
                 )}
               </div>
-
-              <div className="mesa-icone">{modoOrganizar ? "⠿" : "🍽️"}</div>
 
               <p>R$ {formatarMoeda(mesa.total)}</p>
 

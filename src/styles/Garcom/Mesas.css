@@ -39,8 +39,8 @@
 .mesa-card {
   position: relative;
   background: white;
-  border-radius: 10px;
-  padding: 12px 9px;
+  border-radius: 18px;
+  padding: 14px 9px;
   min-height: 128px;
   text-align: center;
   border: 1px solid #e5e7eb;
@@ -77,6 +77,27 @@
 }
 
 .mesa-card.livre .mesa-icone { background: #f1f2f4; color: #6b7280; }
+
+.mesa-circulo {
+  width: 56px;
+  height: 56px;
+  margin: 4px auto 10px;
+  border-radius: 50%;
+  background: #f1f2f4;
+  border: 3px solid #d7dbe1;
+  color: #374151;
+  font-size: 20px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mesa-card.aberta .mesa-circulo {
+  background: #FDF3D9;
+  border-color: #F4C43D;
+  color: #C9971F;
+}
 
 .mesa-card p     { color: #C9971F; font-weight: 900; font-size: 16px; }
 .mesa-card.livre p { color: #374151; }
@@ -124,6 +145,16 @@ body.dark .mesa-card p { color: var(--green) !important; }
 body.dark .mesa-card.livre p { color: var(--muted) !important; }
 body.dark .mesa-icone { background: var(--green-bg) !important; color: var(--green) !important; }
 body.dark .mesa-card.livre .mesa-icone { background: var(--card-3) !important; color: var(--muted) !important; }
+body.dark .mesa-circulo {
+  background: var(--card-3) !important;
+  border-color: var(--border) !important;
+  color: var(--muted) !important;
+}
+body.dark .mesa-card.aberta .mesa-circulo {
+  background: var(--green-bg) !important;
+  border-color: var(--green) !important;
+  color: var(--green) !important;
+}
 body.dark .mesa-editar-cliente { background: rgba(244, 196, 61, 0.16) !important; color: var(--green) !important; }
 /* ============================================================
    ORGANIZAÇÃO DE MESAS (adicionado)
