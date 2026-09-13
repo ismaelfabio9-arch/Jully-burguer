@@ -110,7 +110,10 @@ function Produtos() {
     const produtoId = criarIdProduto(`${categoriaTratada}-${nomeTratado}`);
 
     let urlFoto = "";
-    if (novaFoto) {
+    if (novaFoto && !storage) {
+      setErroProduto("Produto será salvo, mas fotos ainda não foram ativadas no Firebase.");
+    }
+    if (novaFoto && storage) {
       try {
         setEnviandoFoto(true);
         const referenciaFoto = ref(storage, `produtos/${produtoId}-${Date.now()}.jpg`);

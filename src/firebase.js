@@ -18,4 +18,13 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
-export const storage = getStorage(app);
+
+// Blindado: se o Storage não estiver ativado no console do Firebase
+// ainda, isso NÃO pode derrubar o app inteiro (mesas, produtos, etc.
+// dependem só do Firestore acima, que já foi inicializado com sucesso).
+export let storage = null;
+try {
+  storage = getStorage(app);
+} catch (erro) {
+  console.error("Storage não disponível ainda:", erro);
+}
