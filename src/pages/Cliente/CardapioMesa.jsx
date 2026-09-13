@@ -697,60 +697,76 @@ function CardapioMesa() {
                 </span>
               </button>
 
-              {aberta &&
-                [...categoria.itens]
-                  .sort((a, b) => {
-                    if (a.preco !== b.preco) return a.preco - b.preco;
-                    return a.nome.localeCompare(b.nome);
-                  })
-                  .map((item) => {
+              {aberta && (
+                <div className="cardapio-produtos-grid">
+                  {[...categoria.itens]
+                    .sort((a, b) => {
+                      if (a.preco !== b.preco) return a.preco - b.preco;
+                      return a.nome.localeCompare(b.nome);
+                    })
+                    .map((item) => {
                     const quantidade = carrinho[item.id]?.quantidade || 0;
-                    
+
                     const quantidadeEstoque = Number(estoque[item.id]?.quantidade || 0);
 const esgotado = quantidadeEstoque <= 0;
 
                     return (
-                      <div key={item.id} className="cardapio-produto">
-                        {item.imagem ? (
-                          <img
-                            src={item.imagem}
-                            alt={item.nome}
-                            className="cardapio-produto-foto"
-                          />
-                        ) : (
-                          <div className="cardapio-produto-foto cardapio-produto-foto-vazia">🍔</div>
-                        )}
-                        <div>
-                          <strong>
-                            {item.nome}
-                            {item.destaque && (
-                              <span className="cardapio-produto-selo">⭐ Mais pedido</span>
-                            )}
-                          </strong>
-                          {item.descricao && (
-                            <span className="cardapio-produto-descricao">
-                              {item.descricao}
-                            </span>
+                      <div
+                        key={item.id}
+                        className={`cardapio-produto-card ${esgotado ? "esgotada" : ""}`}
+                      >
+                        <div className="cardapio-produto-foto-wrap">
+                          {item.imagem ? (
+                            <img
+                              src={item.imagem}
+                              alt={item.nome}
+                              className="cardapio-produto-foto"
+                            />
+                          ) : (
+                            <div className="cardapio-produto-foto cardapio-produto-foto-vazia">
+                              🍔
+                            </div>
                           )}
-                          <p>R$ {formatarMoeda(item.preco)}</p>
-                          {esgotado && <small className="produto-esgotado">Esgotado</small>}
+                          {item.destaque && (
+                            <span className="cardapio-produto-selo">⭐ Mais pedido</span>
+                          )}
                         </div>
 
-                        <div className="cardapio-controle">
-                          <button onClick={() => alterarQuantidade(item, -1)}>
-                            -
-                          </button>
-                          <span>{quantidade}</span>
-                         <button
-  onClick={() => alterarQuantidade(item, 1)}
-  disabled={esgotado}
->
-  +
-</button>
+                        <div className="cardapio-produto-info">
+                          <strong className="cardapio-produto-nome">{item.nome}</strong>
+
+                          {item.descricao && (
+                            <p className="cardapio-produto-descricao">{item.descricao}</p>
+                          )}
+
+                          <div className="cardapio-produto-rodape">
+                            <span className="cardapio-produto-preco">
+                              R$ {formatarMoeda(item.preco)}
+                            </span>
+
+                            {esgotado ? (
+                              <span className="produto-esgotado">Esgotado</span>
+                            ) : quantidade === 0 ? (
+                              <button
+                                className="cardapio-produto-add"
+                                onClick={() => alterarQuantidade(item, 1)}
+                              >
+                                + Adicionar
+                              </button>
+                            ) : (
+                              <div className="cardapio-controle">
+                                <button onClick={() => alterarQuantidade(item, -1)}>-</button>
+                                <span>{quantidade}</span>
+                                <button onClick={() => alterarQuantidade(item, 1)}>+</button>
+                              </div>
+                            )}
+                          </div>
                         </div>
                       </div>
                     );
                   })}
+                </div>
+              )}
             </div>
           );
         })}
