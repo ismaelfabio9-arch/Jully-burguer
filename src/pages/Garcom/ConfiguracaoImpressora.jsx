@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import MenuLateral from "../../components/MenuLateral";
+import { Menu } from "lucide-react";
 import { doc, onSnapshot, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import {
@@ -13,6 +15,7 @@ function ConfiguracaoImpressora() {
   const [config, setConfig] = useState(CONFIG_IMPRESSORA_PADRAO);
   const [salvando, setSalvando] = useState(false);
   const [mensagem, setMensagem] = useState("");
+  const [menuAberto, setMenuAberto] = useState(false);
 
   useEffect(() => {
     const cancelar = onSnapshot(doc(db, "configuracoes", "impressora"), (snap) => {
@@ -70,12 +73,20 @@ function ConfiguracaoImpressora() {
   }
 
   return (
-    <div className="container">
+    <div className="app-shell-com-sidebar">
+      <MenuLateral menuAberto={menuAberto} setMenuAberto={setMenuAberto} />
+
+      <div className="container">
       {mensagem && <div className="toast">{mensagem}</div>}
 
-      <Link to="/config" className="voltar">
-        ← Voltar
-      </Link>
+      <div className="topo-com-menu">
+        <Link to="/config" className="voltar">
+          ← Voltar
+        </Link>
+        <button className="icon-btn-ref" onClick={() => setMenuAberto(true)}>
+          <Menu size={22} />
+        </button>
+      </div>
 
       <div className="config-header">
         <div>
@@ -227,6 +238,7 @@ function ConfiguracaoImpressora() {
           <span>Config.</span>
         </Link>
       </div>
+    </div>
     </div>
   );
 }

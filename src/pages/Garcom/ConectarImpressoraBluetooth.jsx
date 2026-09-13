@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import MenuLateral from "../../components/MenuLateral";
+import { Menu } from "lucide-react";
 import {
   suportaWebBluetooth,
   conectarImpressora,
@@ -13,6 +15,7 @@ import "../../styles/Garcom/ConectarImpressoraBluetooth.css";
 
 function ConectarImpressoraBluetooth() {
   const [status, setStatus] = useState("desconectado"); // desconectado | conectando | conectado | erro
+  const [menuAberto, setMenuAberto] = useState(false);
   const [nomeDispositivo, setNomeDispositivo] = useState("");
   const [mensagemErro, setMensagemErro] = useState("");
   const [servicos, setServicos] = useState([]);
@@ -72,10 +75,18 @@ function ConectarImpressoraBluetooth() {
   }
 
   return (
-    <div className="container">
-      <Link to="/config/impressora" className="voltar">
-        ← Voltar
-      </Link>
+    <div className="app-shell-com-sidebar">
+      <MenuLateral menuAberto={menuAberto} setMenuAberto={setMenuAberto} />
+
+      <div className="container">
+      <div className="topo-com-menu">
+        <Link to="/config/impressora" className="voltar">
+          ← Voltar
+        </Link>
+        <button className="icon-btn-ref" onClick={() => setMenuAberto(true)}>
+          <Menu size={22} />
+        </button>
+      </div>
 
       <div className="config-header">
         <div>
@@ -189,6 +200,7 @@ function ConectarImpressoraBluetooth() {
           </div>
         </>
       )}
+    </div>
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import MenuLateral from "../../components/MenuLateral";
+import { Menu } from "lucide-react";
 import {
   collection,
   addDoc,
@@ -46,6 +48,7 @@ function MesaDetalhe() {
   const [nomeClienteInput, setNomeClienteInput] = useState("");
   const [editandoNomeCliente, setEditandoNomeCliente] = useState(false);
   const [notificacao, setNotificacao] = useState("");
+  const [menuAberto, setMenuAberto] = useState(false);
   const [encerrando, setEncerrando] = useState(false);
   const [mostrarModalEncerrarMesa, setMostrarModalEncerrarMesa] = useState(false);
   const [categoriasDocs, setCategoriasDocs] = useState([]);
@@ -636,7 +639,10 @@ if (pedidosDaMesa.length === 0) {
   }
 
   return (
-    <div className="mesa-page">
+    <div className="app-shell-com-sidebar">
+      <MenuLateral menuAberto={menuAberto} setMenuAberto={setMenuAberto} />
+
+      <div className="mesa-page">
       {notificacao && <div className="toast">{notificacao}</div>}
 
       {editandoNomeCliente && (
@@ -829,9 +835,14 @@ if (pedidosDaMesa.length === 0) {
         </div>
       )}
 
-      <button className="voltar-fixo" onClick={() => navigate("/")}>
-        ← Voltar para o Painel
-      </button>
+      <div className="topo-com-menu">
+        <button className="voltar-fixo" onClick={() => navigate("/")}>
+          ← Voltar para o Painel
+        </button>
+        <button className="icon-btn-ref" onClick={() => setMenuAberto(true)}>
+          <Menu size={22} />
+        </button>
+      </div>
 
       <div className="mesa-topo">
         <div>
@@ -1054,6 +1065,7 @@ if (pedidosDaMesa.length === 0) {
           <button onClick={salvarPedido}>Salvar Pedido</button>
         </div>
       )}
+    </div>
     </div>
   );
 }
