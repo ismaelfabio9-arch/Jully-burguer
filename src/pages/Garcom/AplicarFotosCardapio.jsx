@@ -43,39 +43,52 @@ export default function AplicarFotosCardapio() {
       return;
     }
 
-    const snapshot = await getDocs(collection(db, "produtos"));
-    const produtos = snapshot.docs.map((d) => ({ id: d.id, ...d.data() }));
+    try {
+      const snapshot = await getDocs(collection(db, "produtos"));
+      const produtos = snapshot.docs.map((d) => ({ id: d.id, ...d.data() }));
 
-    for (const foto of FOTOS) {
-      const produto = produtos.find(
-        (p) => p.nome === foto.nome && p.categoria === foto.categoria
-      );
-
-      if (!produto) {
-        linhas.push({ ok: false, texto: `${foto.nome}: produto não encontrado no cardápio (cadastre primeiro).` });
+      if (produtos.length === 0) {
+        linhas.push({ ok: false, texto: "Nenhum produto encontrado no banco — rode /seed-cardapio primeiro." });
         setLog([...linhas]);
-        continue;
       }
 
-      try {
-        const resposta = await fetch(`/fotos-produtos/${foto.arquivo}`);
-        const blob = await resposta.blob();
+      for (const foto of FOTOS) {
+        const produto = produtos.find(
+          (p) => p.nome === foto.nome && p.categoria === foto.categoria
+        );
 
-        const referencia = ref(storage, `produtos/${produto.id}.jpg`);
-        await uploadBytes(referencia, blob);
-        const url = await getDownloadURL(referencia);
+        if (!produto) {
+          linhas.push({ ok: false, texto: `${foto.nome}: produto não encontrado no cardápio (cadastre primeiro).` });
+          setLog([...linhas]);
+          continue;
+        }
 
-        await updateDoc(doc(db, "produtos", produto.id), { imagem: url });
+        try {
+          const resposta = await fetch(`/fotos-produtos/${foto.arquivo}`);
+          if (!resposta.ok) {
+            throw new Error(`arquivo da foto não encontrado (status ${resposta.status})`);
+          }
+          const blob = await resposta.blob();
 
-        linhas.push({ ok: true, texto: `${foto.nome} — foto aplicada` });
-      } catch (erro) {
-        linhas.push({ ok: false, texto: `${foto.nome}: ${erro.message}` });
+          const referencia = ref(storage, `produtos/${produto.id}.jpg`);
+          await uploadBytes(referencia, blob);
+          const url = await getDownloadURL(referencia);
+
+          await updateDoc(doc(db, "produtos", produto.id), { imagem: url });
+
+          linhas.push({ ok: true, texto: `${foto.nome} — foto aplicada` });
+        } catch (erro) {
+          linhas.push({ ok: false, texto: `${foto.nome}: ${erro.message}` });
+        }
+        setLog([...linhas]);
       }
+    } catch (erroGeral) {
+      linhas.push({ ok: false, texto: `Erro ao ler produtos do banco: ${erroGeral.message}` });
       setLog([...linhas]);
+    } finally {
+      setRodando(false);
+      setConcluido(true);
     }
-
-    setRodando(false);
-    setConcluido(true);
   }
 
   return (
