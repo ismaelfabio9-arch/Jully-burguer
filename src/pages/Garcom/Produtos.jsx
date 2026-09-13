@@ -10,6 +10,8 @@ import {
   writeBatch,
 } from "firebase/firestore";
 import { Link } from "react-router-dom";
+import MenuLateral from "../../components/MenuLateral";
+import { Menu } from "lucide-react";
 import { db, storage } from "../../firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import {
@@ -35,6 +37,7 @@ function Produtos() {
   const [novoNomeProduto, setNovoNomeProduto] = useState("");
   const [erroNomeProduto, setErroNomeProduto] = useState("");
   const [adicionando, setAdicionando] = useState(false);
+  const [menuAberto, setMenuAberto] = useState(false);
   const [novoNome, setNovoNome] = useState("");
   const [novaCategoria, setNovaCategoria] = useState("");
   const [precoNovoProduto, setPrecoNovoProduto] = useState("");
@@ -370,10 +373,18 @@ function Produtos() {
     categorias.filter((c) => c.nome !== categoriaAtual);
 
   return (
-    <div className="container">
-      <Link to="/" className="voltar">
-        ← Voltar
-      </Link>
+    <div className="app-shell-com-sidebar">
+      <MenuLateral menuAberto={menuAberto} setMenuAberto={setMenuAberto} />
+
+      <div className="container">
+      <div className="topo-com-menu">
+        <Link to="/" className="voltar">
+          ← Voltar
+        </Link>
+        <button className="icon-btn-ref" onClick={() => setMenuAberto(true)}>
+          <Menu size={22} />
+        </button>
+      </div>
 
       <div className="pedidos-header">
         <div>
@@ -975,6 +986,7 @@ function Produtos() {
           )}
         </div>
       ))}
+    </div>
     </div>
   );
 }

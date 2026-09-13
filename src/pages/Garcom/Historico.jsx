@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import MenuLateral from "../../components/MenuLateral";
+import { Menu } from "lucide-react";
 import {
   collection,
   onSnapshot,
@@ -13,6 +15,7 @@ import "../../styles/Garcom/Historico.css";
 
 function Historico() {
   const [historico, setHistorico] = useState([]);
+  const [menuAberto, setMenuAberto] = useState(false);
   const [fechamentoAberto, setFechamentoAberto] = useState(null);
 
   function formatarMoeda(valor) {
@@ -75,10 +78,18 @@ produtos[item.nome].total += Number(item.preco || 0) * quantidade;
   }
 
   return (
-    <div className="container">
-      <Link to="/config" className="voltar">
-        ← Voltar
-      </Link>
+    <div className="app-shell-com-sidebar">
+      <MenuLateral menuAberto={menuAberto} setMenuAberto={setMenuAberto} />
+
+      <div className="container">
+      <div className="topo-com-menu">
+        <Link to="/config" className="voltar">
+          ← Voltar
+        </Link>
+        <button className="icon-btn-ref" onClick={() => setMenuAberto(true)}>
+          <Menu size={22} />
+        </button>
+      </div>
 
       <div className="pedidos-header">
         <div>
@@ -175,6 +186,7 @@ produtos[item.nome].total += Number(item.preco || 0) * quantidade;
           })}
         </div>
       )}
+    </div>
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import MenuLateral from "../../components/MenuLateral";
+import { Menu } from "lucide-react";
 import {
   collection,
   onSnapshot,
@@ -14,6 +16,7 @@ import "../../styles/Garcom/Notificacoes.css";
 
 function Notificacoes() {
   const [notificacoes, setNotificacoes] = useState([]);
+  const [menuAberto, setMenuAberto] = useState(false);
   const [modalAberto, setModalAberto] = useState(false);
   const navigate = useNavigate();
 
@@ -79,10 +82,18 @@ function Notificacoes() {
 }
 
   return (
-    <div className="container">
-      <Link to="/" className="voltar">
-        ← Voltar
-      </Link>
+    <div className="app-shell-com-sidebar">
+      <MenuLateral menuAberto={menuAberto} setMenuAberto={setMenuAberto} />
+
+      <div className="container">
+      <div className="topo-com-menu">
+        <Link to="/" className="voltar">
+          ← Voltar
+        </Link>
+        <button className="icon-btn-ref" onClick={() => setMenuAberto(true)}>
+          <Menu size={22} />
+        </button>
+      </div>
 
       <div className="pedidos-header">
         <div>
@@ -168,6 +179,7 @@ function Notificacoes() {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 }

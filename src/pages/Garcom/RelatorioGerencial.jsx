@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import MenuLateral from "../../components/MenuLateral";
+import { Menu } from "lucide-react";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import { db } from "../../firebase";
 import "../../styles/Garcom/RelatorioGerencial.css";
 
 function RelatorioGerencial() {
   const [historico, setHistorico] = useState([]);
+  const [menuAberto, setMenuAberto] = useState(false);
   const [dataInicio, setDataInicio] = useState("");
   const [dataFim, setDataFim] = useState("");
 
@@ -103,11 +106,19 @@ function RelatorioGerencial() {
   const produtoMaiorFaturamento = listaProdutos[0];
 
   return (
-    <div className="container relatorio-page">
+    <div className="app-shell-com-sidebar">
+      <MenuLateral menuAberto={menuAberto} setMenuAberto={setMenuAberto} />
+
+      <div className="container relatorio-page">
       <div className="no-print">
-        <Link to="/config" className="voltar">
-          ← Voltar
-        </Link>
+        <div className="topo-com-menu">
+          <Link to="/config" className="voltar">
+            ← Voltar
+          </Link>
+          <button className="icon-btn-ref" onClick={() => setMenuAberto(true)}>
+            <Menu size={22} />
+          </button>
+        </div>
 
         <div className="relatorio-filtros">
           <h1>Relatório Gerencial</h1>
@@ -269,6 +280,7 @@ function RelatorioGerencial() {
           <p>Relatório gerado automaticamente pelo sistema Jully Burguer.</p>
         </div>
       </div>
+    </div>
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import MenuLateral from "../../components/MenuLateral";
+import { Menu } from "lucide-react";
 import {
   collection,
   addDoc,
@@ -17,6 +19,7 @@ function Viagem() {
   const [categoriaAberta, setCategoriaAberta] = useState("");
   const [pedido, setPedido] = useState({});
   const [notificacao, setNotificacao] = useState("");
+  const [menuAberto, setMenuAberto] = useState(false);
   const [nomeCliente, setNomeCliente] = useState("");
   const [nomeClienteInput, setNomeClienteInput] = useState("");
   const [editandoNomeCliente, setEditandoNomeCliente] = useState(false);
@@ -238,7 +241,10 @@ function Viagem() {
   }
 
   return (
-    <div className="mesa-page">
+    <div className="app-shell-com-sidebar">
+      <MenuLateral menuAberto={menuAberto} setMenuAberto={setMenuAberto} />
+
+      <div className="mesa-page">
       {notificacao && <div className="toast">✅ {notificacao}</div>}
 
       {editandoNomeCliente && (
@@ -283,9 +289,14 @@ function Viagem() {
         </div>
       )}
 
-      <Link className="voltar" to="/">
-        ← Voltar
-      </Link>
+      <div className="topo-com-menu">
+        <Link className="voltar" to="/">
+          ← Voltar
+        </Link>
+        <button className="icon-btn-ref" onClick={() => setMenuAberto(true)}>
+          <Menu size={22} />
+        </button>
+      </div>
 
       <div className="mesa-topo">
         <div>
@@ -393,6 +404,7 @@ function Viagem() {
           <button onClick={salvarPedidoViagem}>Salvar Pedido</button>
         </div>
       )}
+    </div>
     </div>
   );
 }

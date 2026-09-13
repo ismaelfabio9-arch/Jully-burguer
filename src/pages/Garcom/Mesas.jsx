@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import MenuLateral from "../../components/MenuLateral";
+import { Menu } from "lucide-react";
 import {
   collection,
   onSnapshot,
@@ -48,6 +50,7 @@ function Mesas() {
   const [dadosMesas, setDadosMesas] = useState({}); // { numero: { cliente, posicao, posicaoOriginal } }
   const [pedidosPorMesa, setPedidosPorMesa] = useState({});
   const [modalCliente, setModalCliente] = useState(null);
+  const [menuAberto, setMenuAberto] = useState(false);
   const [nomeCliente, setNomeCliente] = useState("");
   const [modoOrganizar, setModoOrganizar] = useState(false);
   const [arrastando, setArrastando] = useState(null); // numero da mesa sendo arrastada
@@ -272,7 +275,10 @@ function Mesas() {
   }
 
   return (
-    <div className="container">
+    <div className="app-shell-com-sidebar">
+      <MenuLateral menuAberto={menuAberto} setMenuAberto={setMenuAberto} />
+
+      <div className="container">
       {modalCliente && (
         <div className="modal-fechar-dia">
           <div className="modal-fechar-dia-card">
@@ -310,9 +316,14 @@ function Mesas() {
         </div>
       )}
 
-      <Link to="/" className="voltar">
-        ← Voltar
-      </Link>
+      <div className="topo-com-menu">
+        <Link to="/" className="voltar">
+          ← Voltar
+        </Link>
+        <button className="icon-btn-ref" onClick={() => setMenuAberto(true)}>
+          <Menu size={22} />
+        </button>
+      </div>
 
       <div className="mesas-header">
         <div>
@@ -458,6 +469,7 @@ function Mesas() {
           ⚙
           <span>Config.</span>
         </Link>
+      </div>
       </div>
     </div>
   );

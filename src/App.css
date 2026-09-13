@@ -305,6 +305,20 @@ a {
 
 /* ── MENU LATERAL ── */
 
+.icon-btn-ref {
+  border: none;
+  background: transparent;
+  color: var(--text, #111827);
+  cursor: pointer;
+}
+
+.topo-com-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
 .menu-overlay {
   position: fixed;
   inset: 0;
@@ -399,12 +413,14 @@ a {
   }
 
   .app-shell-com-sidebar > .container,
-  .app-shell-com-sidebar > .app-ref {
+  .app-shell-com-sidebar > .app-ref,
+  .app-shell-com-sidebar > .estoque-page,
+  .app-shell-com-sidebar > .mesa-page {
     flex: 1;
     min-width: 0;
   }
 
-  .header-ref .icon-btn-ref {
+  .icon-btn-ref {
     display: none;
   }
 

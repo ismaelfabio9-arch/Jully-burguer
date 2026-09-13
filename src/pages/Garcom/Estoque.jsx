@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import MenuLateral from "../../components/MenuLateral";
+import { Menu } from "lucide-react";
 import {
   collection,
   onSnapshot,
@@ -21,6 +23,7 @@ function Estoque() {
   const [minimos, setMinimos] = useState({});
 
   const [modalAdicionar, setModalAdicionar] = useState(false);
+  const [menuAberto, setMenuAberto] = useState(false);
   const [produtoParaExcluir, setProdutoParaExcluir] = useState(null);
 
   const [novoNome, setNovoNome] = useState("");
@@ -274,7 +277,10 @@ async function salvarEstoque(produto) {
   }, {});
 
   return (
-    <div className="estoque-page">
+    <div className="app-shell-com-sidebar">
+      <MenuLateral menuAberto={menuAberto} setMenuAberto={setMenuAberto} />
+
+      <div className="estoque-page">
       {modalAdicionar && (
         <div className="estoque-modal-fundo">
           <div className="estoque-modal-card">
@@ -374,9 +380,14 @@ async function salvarEstoque(produto) {
         </div>
       )}
 
-      <Link to="/" className="voltar">
-        ← Voltar
-      </Link>
+      <div className="topo-com-menu">
+        <Link to="/" className="voltar">
+          ← Voltar
+        </Link>
+        <button className="icon-btn-ref" onClick={() => setMenuAberto(true)}>
+          <Menu size={22} />
+        </button>
+      </div>
 
       <div className="estoque-header">
         <div>
@@ -557,6 +568,7 @@ async function salvarEstoque(produto) {
           </div>
         );
       })}
+    </div>
     </div>
   );
 }

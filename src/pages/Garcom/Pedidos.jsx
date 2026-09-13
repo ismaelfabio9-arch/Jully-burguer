@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import MenuLateral from "../../components/MenuLateral";
+import { Menu } from "lucide-react";
 import {
   collection,
   onSnapshot,
@@ -19,6 +21,7 @@ function Pedidos() {
   const [pedidos, setPedidos] = useState([]);
   const [nomesMesas, setNomesMesas] = useState({});
   const [busca, setBusca] = useState("");
+  const [menuAberto, setMenuAberto] = useState(false);
 
   function formatarMoeda(valor) {
     return Number(valor).toFixed(2).replace(".", ",");
@@ -176,10 +179,18 @@ function Pedidos() {
   });
 
   return (
-    <div className="container">
-      <Link to="/" className="voltar">
-        ← Voltar
-      </Link>
+    <div className="app-shell-com-sidebar">
+      <MenuLateral menuAberto={menuAberto} setMenuAberto={setMenuAberto} />
+
+      <div className="container">
+      <div className="topo-com-menu">
+        <Link to="/" className="voltar">
+          ← Voltar
+        </Link>
+        <button className="icon-btn-ref" onClick={() => setMenuAberto(true)}>
+          <Menu size={22} />
+        </button>
+      </div>
 
       <div className="pedidos-header">
         <div>
@@ -300,6 +311,7 @@ function Pedidos() {
           <span>Config.</span>
         </Link>
       </div>
+    </div>
     </div>
   );
 }

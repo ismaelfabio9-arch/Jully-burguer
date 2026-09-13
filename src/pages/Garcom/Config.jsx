@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import MenuLateral from "../../components/MenuLateral";
+import { Menu } from "lucide-react";
 import {
   collection,
   getDocs,
@@ -15,6 +17,7 @@ import "../../styles/Garcom/Config.css";
 
 function Config() {
   const [mensagem, setMensagem] = useState("");
+  const [menuAberto, setMenuAberto] = useState(false);
   const [encerrando, setEncerrando] = useState(false);
   const [modalEncerrarDia, setModalEncerrarDia] = useState(false);
 
@@ -157,12 +160,20 @@ await addDoc(collection(db, "relatorioGerencial"), fechamentoDoDia);
   }
 
   return (
-    <div className="container">
+    <div className="app-shell-com-sidebar">
+      <MenuLateral menuAberto={menuAberto} setMenuAberto={setMenuAberto} />
+
+      <div className="container">
       {mensagem && <div className="toast">{mensagem}</div>}
 
-      <Link to="/" className="voltar">
-        ← Voltar
-      </Link>
+      <div className="topo-com-menu">
+        <Link to="/" className="voltar">
+          ← Voltar
+        </Link>
+        <button className="icon-btn-ref" onClick={() => setMenuAberto(true)}>
+          <Menu size={22} />
+        </button>
+      </div>
 
       <div className="config-header">
         <div>
@@ -353,6 +364,7 @@ await addDoc(collection(db, "relatorioGerencial"), fechamentoDoDia);
           <span>Config.</span>
         </Link>
       </div>
+    </div>
     </div>
   );
 }

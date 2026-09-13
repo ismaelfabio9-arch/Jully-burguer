@@ -7,6 +7,20 @@
   position: relative;
 }
 
+@media (min-width: 700px) {
+  .mesa-page {
+    max-width: 680px;
+    padding: 24px 24px 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mesa-page {
+    max-width: 100%;
+    padding: 28px 32px 40px;
+  }
+}
+
 .voltar {
   text-decoration: none;
   color: #C9971F;
