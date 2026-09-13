@@ -100,6 +100,9 @@ function CardapioMesa() {
           id: produto.id,
           nome: produto.nome,
           preco: Number(produto.preco || 0),
+          descricao: produto.descricao || "",
+          imagem: produto.imagem || "",
+          destaque: produto.destaque || false,
         });
 
         return resultado;
@@ -708,8 +711,22 @@ const esgotado = quantidadeEstoque <= 0;
 
                     return (
                       <div key={item.id} className="cardapio-produto">
+                        {item.imagem ? (
+                          <img
+                            src={item.imagem}
+                            alt={item.nome}
+                            className="cardapio-produto-foto"
+                          />
+                        ) : (
+                          <div className="cardapio-produto-foto cardapio-produto-foto-vazia">🍔</div>
+                        )}
                         <div>
-                          <strong>{item.nome}</strong>
+                          <strong>
+                            {item.nome}
+                            {item.destaque && (
+                              <span className="cardapio-produto-selo">⭐ Mais pedido</span>
+                            )}
+                          </strong>
                           {item.descricao && (
                             <span className="cardapio-produto-descricao">
                               {item.descricao}

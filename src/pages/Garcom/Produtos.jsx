@@ -10,7 +10,8 @@ import {
   writeBatch,
 } from "firebase/firestore";
 import { Link } from "react-router-dom";
-import { db } from "../../firebase";
+import { db, storage } from "../../firebase";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import {
   SEM_CATEGORIA,
   migrarCategoriasSeNecessario,
@@ -38,6 +39,10 @@ function Produtos() {
   const [novaCategoria, setNovaCategoria] = useState("");
   const [precoNovoProduto, setPrecoNovoProduto] = useState("");
   const [novaDescricao, setNovaDescricao] = useState("");
+  const [novaFoto, setNovaFoto] = useState(null);
+  const [previewFoto, setPreviewFoto] = useState(null);
+  const [enviandoFoto, setEnviandoFoto] = useState(false);
+  const [novoDestaque, setNovoDestaque] = useState(false);
   const [segurandoProduto, setSegurandoProduto] = useState(null);
   const [produtoParaExcluir, setProdutoParaExcluir] = useState(null);
   const [erroProduto, setErroProduto] = useState("");
@@ -104,6 +109,21 @@ function Produtos() {
     const categoriaTratada = novaCategoria.trim();
     const produtoId = criarIdProduto(`${categoriaTratada}-${nomeTratado}`);
 
+    let urlFoto = "";
+    if (novaFoto) {
+      try {
+        setEnviandoFoto(true);
+        const referenciaFoto = ref(storage, `produtos/${produtoId}-${Date.now()}.jpg`);
+        await uploadBytes(referenciaFoto, novaFoto);
+        urlFoto = await getDownloadURL(referenciaFoto);
+      } catch (erro) {
+        console.error("Erro ao enviar foto:", erro);
+        setErroProduto("Produto será salvo, mas a foto falhou ao enviar.");
+      } finally {
+        setEnviandoFoto(false);
+      }
+    }
+
     await setDoc(
       doc(db, "produtos", produtoId),
       {
@@ -111,6 +131,8 @@ function Produtos() {
         categoria: categoriaTratada,
         preco: Number(precoNovoProduto),
         descricao: novaDescricao.trim(),
+        destaque: novoDestaque,
+        ...(urlFoto ? { imagem: urlFoto } : {}),
         ativo: true,
         criadoEm: serverTimestamp(),
       },
@@ -145,6 +167,9 @@ function Produtos() {
     setNovaCategoria("");
     setPrecoNovoProduto("");
     setNovaDescricao("");
+    setNovaFoto(null);
+    setPreviewFoto(null);
+    setNovoDestaque(false);
     setErroProduto("");
     setAdicionando(false);
   }
@@ -662,6 +687,61 @@ function Produtos() {
                   resize: "vertical",
                 }}
               />
+
+              <label
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                  border: "1px dashed var(--border)",
+                  borderRadius: "10px",
+                  padding: "12px 14px",
+                  cursor: "pointer",
+                  color: "var(--muted)",
+                  fontSize: "14px",
+                }}
+              >
+                {previewFoto ? (
+                  <img
+                    src={previewFoto}
+                    alt="Prévia"
+                    style={{ width: 48, height: 48, borderRadius: 8, objectFit: "cover" }}
+                  />
+                ) : (
+                  <span>📷</span>
+                )}
+                {previewFoto ? "Trocar foto" : "Adicionar foto do produto"}
+                <input
+                  type="file"
+                  accept="image/*"
+                  capture="environment"
+                  style={{ display: "none" }}
+                  onChange={(e) => {
+                    const arquivo = e.target.files?.[0];
+                    if (arquivo) {
+                      setNovaFoto(arquivo);
+                      setPreviewFoto(URL.createObjectURL(arquivo));
+                    }
+                  }}
+                />
+              </label>
+
+              <label
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  fontSize: "14px",
+                  color: "var(--text)",
+                }}
+              >
+                <input
+                  type="checkbox"
+                  checked={novoDestaque}
+                  onChange={(e) => setNovoDestaque(e.target.checked)}
+                />
+                ⭐ Marcar como "Mais pedido" no cardápio
+              </label>
             </div>
 
             <div className="modal-fechar-dia-botoes">
@@ -670,13 +750,20 @@ function Produtos() {
                 onClick={() => {
                   setAdicionando(false);
                   setErroProduto("");
+                  setNovaFoto(null);
+                  setPreviewFoto(null);
                 }}
               >
                 Cancelar
               </button>
 
-              <button className="modal-btn-confirmar" onClick={adicionarProduto}>
-                Salvar
+              <button
+                className="modal-btn-confirmar"
+                onClick={adicionarProduto}
+                disabled={enviandoFoto}
+                style={{ opacity: enviandoFoto ? 0.6 : 1 }}
+              >
+                {enviandoFoto ? "Enviando foto..." : "Salvar"}
               </button>
             </div>
           </div>
@@ -733,6 +820,20 @@ function Produtos() {
                 onTouchStart={() => iniciarPressionar(produto)}
                 onTouchEnd={cancelarPressionar}
               >
+                {produto.imagem ? (
+                  <img
+                    src={produto.imagem}
+                    alt={produto.nome}
+                    style={{
+                      width: 44,
+                      height: 44,
+                      borderRadius: 8,
+                      objectFit: "cover",
+                      flexShrink: 0,
+                      marginRight: 10,
+                    }}
+                  />
+                ) : null}
                 <div className="produto-linha-info">
                   {editandoNome === produto.id ? (
                     <div
@@ -836,15 +937,35 @@ function Produtos() {
                     </button>
                   </div>
                 ) : (
-                  <strong
-                    onClick={() => {
-                      setEditando(produto.id);
-                      setNovoPreco(produto.preco);
-                    }}
-                    style={{ cursor: "pointer" }}
-                  >
-                    R$ {formatarMoeda(produto.preco)}
-                  </strong>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                    <strong
+                      onClick={() => {
+                        setEditando(produto.id);
+                        setNovoPreco(produto.preco);
+                      }}
+                      style={{ cursor: "pointer" }}
+                    >
+                      R$ {formatarMoeda(produto.preco)}
+                    </strong>
+
+                    <button
+                      onClick={() =>
+                        updateDoc(doc(db, "produtos", produto.id), {
+                          destaque: !produto.destaque,
+                        })
+                      }
+                      title={produto.destaque ? "Remover destaque" : "Marcar como Mais pedido"}
+                      style={{
+                        background: "none",
+                        border: "none",
+                        fontSize: "16px",
+                        opacity: produto.destaque ? 1 : 0.3,
+                        cursor: "pointer",
+                      }}
+                    >
+                      ⭐
+                    </button>
+                  </div>
                 )}
               </div>
             )
