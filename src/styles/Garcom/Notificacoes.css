@@ -41,7 +41,7 @@ body.dark .notificacao-card {
 
 body.dark .notificacao-card strong { color: var(--text) !important; }
 body.dark .notificacao-card p      { color: var(--muted) !important; }
-body.dark .icone-azul              { background: #1e1b4b !important; }
+body.dark .icone-azul              { background: rgba(244, 196, 61, 0.14) !important; }
 body.dark .icone-vermelho          { background: #450a0a !important; }
 .notificacao-clicavel {
   width: 100%;

@@ -92,8 +92,8 @@
 }
 
 .green  { background: #FDF3D9; color: #C9971F; }
-.purple { background: #f0edff; color: #C9971F; }
-.orange { background: #fff1df; color: #f97316; }
+.purple { background: var(--brand-tint, #FDF3D9); color: var(--brand-dark, #C9971F); }
+.orange { background: #FCE1E6; color: #F2445C; }
 
 .summary-text-ref span,
 .summary-mini-ref span {
@@ -339,8 +339,8 @@ body.dark .icon-square-ref.green,
 body.dark .table-icon-ref { background: var(--green-bg) !important; color: var(--green) !important; }
 
 body.dark .table-card-ref.livre .table-icon-ref { background: var(--card-3) !important; color: var(--muted) !important; }
-body.dark .icon-circle-ref.purple { background: #1e1b4b !important; color: #818cf8 !important; }
-body.dark .icon-circle-ref.orange { background: #431407 !important; color: #fb923c !important; }
+body.dark .icon-circle-ref.purple { background: rgba(244, 196, 61, 0.14) !important; color: var(--brand, #F4C43D) !important; }
+body.dark .icon-circle-ref.orange { background: rgba(242, 68, 92, 0.14) !important; color: var(--red, #F2445C) !important; }
 .toast-pagamento-garcom {
   position: fixed;
   top: 18px;

@@ -61,9 +61,9 @@
   width: 100%;
   margin-top: 10px;
   padding: 14px;
-  border: none;
+  border: 1.5px solid #3a3a3a;
   border-radius: 12px;
-  background: #2563eb;
+  background: transparent;
   color: white;
   font-size: 16px;
   cursor: pointer;
@@ -88,9 +88,9 @@
 .cardapio-garcom-btn {
   width: 100%;
   margin-top: 12px;
-  background: #2563eb;
-  color: white;
-  border: none;
+  background: transparent;
+  color: #F4C43D;
+  border: 1.5px solid #F4C43D;
   border-radius: 12px;
   padding: 14px;
   cursor: pointer;
