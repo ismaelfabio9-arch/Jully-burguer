@@ -396,7 +396,64 @@ function Dashboard() {
   const mesasPainel = mesasOrdenadas.slice(0, 9);
 
   return (
-    <div className="app-ref">
+    <div className="app-shell-com-sidebar">
+      {menuAberto && (
+        <div className="menu-overlay" onClick={() => setMenuAberto(false)} />
+      )}
+
+      <aside className={`menu-lateral ${menuAberto ? "aberto" : ""}`}>
+        <div className="menu-lateral-topo">
+          <h2>🍔 Jully Burguer</h2>
+          <button
+            className="menu-lateral-fechar"
+            onClick={() => setMenuAberto(false)}
+          >
+            <X size={24} />
+          </button>
+        </div>
+
+        <Link to="/" className="ativo" onClick={() => setMenuAberto(false)}>
+          <LayoutGrid size={20} />
+          Painel
+        </Link>
+
+        <Link to="/pedidos" onClick={() => setMenuAberto(false)}>
+          <ClipboardList size={20} />
+          Pedidos
+        </Link>
+
+        <Link to="/mesas" onClick={() => setMenuAberto(false)}>
+          <Table2 size={20} />
+          Mesas
+        </Link>
+
+        <Link to="/viagem" onClick={() => setMenuAberto(false)}>
+          <ShoppingBag size={20} />
+          Pedido Viagem
+        </Link>
+
+        <Link to="/produtos" onClick={() => setMenuAberto(false)}>
+          <Package size={20} />
+          Produtos
+        </Link>
+
+        <Link to="/estoque" onClick={() => setMenuAberto(false)}>
+          📦
+          <span>Estoque</span>
+        </Link>
+
+        <Link to="/historico" onClick={() => setMenuAberto(false)}>
+          <History size={20} />
+          Histórico
+        </Link>
+
+        <Link to="/config" onClick={() => setMenuAberto(false)}>
+          <Settings size={20} />
+          Configurações
+        </Link>
+      </aside>
+
+      <div className="app-ref">
       {modalCliente && (
         <div className="modal-fechar-dia">
           <div className="modal-fechar-dia-card">
@@ -502,61 +559,6 @@ function Dashboard() {
             </div>
           </div>
         </div>
-      )}
-
-      {menuAberto && (
-        <>
-          <div className="menu-overlay" onClick={() => setMenuAberto(false)} />
-
-          <aside className="menu-lateral">
-            <div className="menu-lateral-topo">
-              <h2>Jully Burguer</h2>
-              <button onClick={() => setMenuAberto(false)}>
-                <X size={24} />
-              </button>
-            </div>
-
-            <Link to="/" onClick={() => setMenuAberto(false)}>
-              <LayoutGrid size={20} />
-              Painel
-            </Link>
-
-            <Link to="/pedidos" onClick={() => setMenuAberto(false)}>
-              <ClipboardList size={20} />
-              Pedidos
-            </Link>
-
-            <Link to="/mesas" onClick={() => setMenuAberto(false)}>
-              <Table2 size={20} />
-              Mesas
-            </Link>
-
-            <Link to="/viagem" onClick={() => setMenuAberto(false)}>
-              <ShoppingBag size={20} />
-              Pedido Viagem
-            </Link>
-
-            <Link to="/produtos" onClick={() => setMenuAberto(false)}>
-              <Package size={20} />
-              Produtos
-            </Link>
-
-            <Link to="/estoque" onClick={() => setMenuAberto(false)}>
-              📦
-              <span>Estoque</span>
-            </Link>
-
-            <Link to="/historico" onClick={() => setMenuAberto(false)}>
-              <History size={20} />
-              Histórico
-            </Link>
-
-            <Link to="/config" onClick={() => setMenuAberto(false)}>
-              <Settings size={20} />
-              Configurações
-            </Link>
-          </aside>
-        </>
       )}
 
       <header className="header-ref">
@@ -730,6 +732,7 @@ function Dashboard() {
           <span>Config.</span>
         </Link>
       </nav>
+      </div>
     </div>
   );
 }
