@@ -13,18 +13,27 @@ function slugify(texto) {
 
 const CATEGORIA = "Hambúrgueres";
 const PRODUTOS = [
-  { nome: "Hambúrguer", preco: 15.0, descricao: "Pão, um blend de 110g, salada e molho especial" },
-  { nome: "X-Burguer", preco: 17.0, descricao: "Pão, um blend de 110g, queijo, salada e molho especial" },
-  { nome: "Cheese Frango", preco: 17.0, descricao: "Pão, um blend de frango 110g, queijo, salada e molho especial" },
-  { nome: "Cheese Frango Especial", preco: 22.0, descricao: "Pão, um blend de 110g, queijo, bacon, salada e molho especial" },
-  { nome: "Cheese Calabresa", preco: 22.0, descricao: "Pão, um blend de 110g, calabresa em fatias, queijo, salada e molho especial" },
-  { nome: "Cheese Bacon", preco: 22.0, descricao: "Pão, um blend de 110g, queijo, bacon, salada e molho especial" },
-  { nome: "Duplo Bacon", preco: 27.0, descricao: "Pão, dois blend 110g, queijo, bacon, salada e molho especial" },
-  { nome: "Duplo Creme Cheese", preco: 27.0, descricao: "Pão, dois blend 110g, creme cheese, salada e molho especial" },
-  { nome: "Duplo Cheddar", preco: 27.0, descricao: "Pão, dois blend de 110g, queijo, molho cheddar, salada e molho especial" },
-  { nome: "Cheese Picanha", preco: 28.0, descricao: "Pão, um blend de picanha 110g, queijo, salada e molho especial" },
-  { nome: "Jully Especial", preco: 38.0, descricao: "Pão, dois blend de picanha 110g, queijo, salada e molho especial" },
-  { nome: "Nordestino", preco: 38.0, descricao: "Pão, um blend de 110g, carne de sol de 110g, queijo coalho, mel, salada e molho especial" },
+  { categoria: CATEGORIA, nome: "Hambúrguer", preco: 15.0, descricao: "Pão, um blend de 110g, salada e molho especial" },
+  { categoria: CATEGORIA, nome: "X-Burguer", preco: 17.0, descricao: "Pão, um blend de 110g, queijo, salada e molho especial" },
+  { categoria: CATEGORIA, nome: "Cheese Frango", preco: 17.0, descricao: "Pão, um blend de frango 110g, queijo, salada e molho especial" },
+  { categoria: CATEGORIA, nome: "Cheese Frango Especial", preco: 22.0, descricao: "Pão, um blend de 110g, queijo, bacon, salada e molho especial" },
+  { categoria: CATEGORIA, nome: "Cheese Calabresa", preco: 22.0, descricao: "Pão, um blend de 110g, calabresa em fatias, queijo, bacon, salada e molho especial" },
+  { categoria: CATEGORIA, nome: "Cheese Bacon", preco: 22.0, descricao: "Pão, um blend de 110g, queijo, bacon, salada e molho especial" },
+  { categoria: CATEGORIA, nome: "Duplo Bacon", preco: 27.0, descricao: "Pão, dois blend 110g, queijo, bacon, salada e molho especial" },
+  { categoria: CATEGORIA, nome: "Duplo Creme Cheese", preco: 27.0, descricao: "Pão, dois blend 110g, creme cheese, salada e molho especial" },
+  { categoria: CATEGORIA, nome: "Duplo Cheddar", preco: 27.0, descricao: "Pão, dois blends de 110g, queijo, molho cheddar, salada e molho especial" },
+  { categoria: CATEGORIA, nome: "Cheese Picanha", preco: 30.0, descricao: "Pão, um blend de picanha 110g, queijo, salada e molho especial" },
+  { categoria: CATEGORIA, nome: "July Especial", preco: 40.0, descricao: "Pão, um blend de picanha 110g, queijo, salada e molho especial" },
+  { categoria: CATEGORIA, nome: "Nordestino", preco: 40.0, descricao: "Pão, blend de 110g, carne de sol de 110g, queijo coalho, mel, salada e molho especial" },
+
+  { categoria: "Porções", nome: "Porção de Batatas (300g)", preco: 14.0, descricao: "Porção de batatas fritas crocantes" },
+
+  { categoria: "Bebidas", nome: "Refrigerante Lata", preco: 6.0, descricao: "" },
+  { categoria: "Bebidas", nome: "Refrigerante Litro", preco: 10.0, descricao: "" },
+  { categoria: "Bebidas", nome: "Água", preco: 2.5, descricao: "" },
+  { categoria: "Bebidas", nome: "Água c/ gás", preco: 4.0, descricao: "" },
+  { categoria: "Bebidas", nome: "Limonada e H2O", preco: 7.0, descricao: "" },
+  { categoria: "Bebidas", nome: "Suco", preco: 6.0, descricao: "" },
 ];
 
 export default function SeedCardapio() {
@@ -38,13 +47,13 @@ export default function SeedCardapio() {
     const linhas = [];
 
     for (const produto of PRODUTOS) {
-      const id = slugify(`${CATEGORIA}-${produto.nome}`);
+      const id = slugify(`${produto.categoria}-${produto.nome}`);
       try {
         await setDoc(
           doc(db, "produtos", id),
           {
             nome: produto.nome,
-            categoria: CATEGORIA,
+            categoria: produto.categoria,
             preco: produto.preco,
             descricao: produto.descricao,
             ativo: true,
@@ -57,7 +66,7 @@ export default function SeedCardapio() {
           doc(db, "estoque", id),
           {
             nome: produto.nome,
-            categoria: CATEGORIA,
+            categoria: produto.categoria,
             quantidade: 0,
             atualizadoEm: new Date().toISOString(),
           },
