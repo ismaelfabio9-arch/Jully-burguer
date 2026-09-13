@@ -64,8 +64,8 @@
   cursor: pointer;
 }
 
-.modal-btn-cancelar  { background: #27272a; color: white; }
-.modal-btn-confirmar { background: linear-gradient(135deg, #F2445C, #C22E45); color: white; }
+.modal-btn-cancelar  { background: transparent; border: 1.5px solid #3a3a3a; color: white; }
+.modal-btn-confirmar { background: #F2445C; color: white; }
 .modal-fechar-dia-botoes button:disabled { opacity: 0.7; cursor: not-allowed; }
 
 /* ── DARK ── */

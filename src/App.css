@@ -115,32 +115,30 @@ a {
 
 .btn-verde,
 .btn-cinza,
-.config-btn {
+.config-btn,
+.btn-remover {
   border: none;
-  border-radius: 14px;
+  border-radius: 12px;
   padding: 12px;
   font-weight: 700;
   cursor: pointer;
 }
 
 .btn-verde {
-  background: #C9971F;
-  color: #1A1200;
+  background: var(--brand, #F4C43D);
+  color: var(--brand-text, #1A1200);
 }
 
 .btn-cinza,
 .config-btn {
-  background: #eef0f3;
-  color: #111827;
+  background: transparent;
+  border: 1.5px solid var(--border, #e5e7eb);
+  color: var(--text, #111827);
 }
 
 .btn-remover {
-  border: none;
-  background: #F2445C;
+  background: var(--red, #F2445C);
   color: white;
-  font-weight: 700;
-  cursor: pointer;
-  border-radius: 14px;
 }
 
 /* ── SEÇÃO TÍTULO ── */
