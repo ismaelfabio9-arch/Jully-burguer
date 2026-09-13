@@ -111,7 +111,7 @@ function Produtos() {
 
     let urlFoto = "";
     if (novaFoto && !storage) {
-      setErroProduto("Produto será salvo, mas fotos ainda não foram ativadas no Firebase.");
+      setErroProduto("Upload de foto ainda não está disponível (Firebase Storage exige plano pago). Foto não foi salva.");
     }
     if (novaFoto && storage) {
       try {

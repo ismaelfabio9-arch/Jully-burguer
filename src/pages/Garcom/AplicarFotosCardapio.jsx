@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { db, storage } from "../../firebase";
+import { db } from "../../firebase";
 import { collection, getDocs, updateDoc, doc } from "firebase/firestore";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
-// Mapeia cada foto (já enviada pelo dono da Jully Burguer) para o produto
-// certo, por categoria + nome — não inventa fotos para produtos que não
-// vieram nessa leva (ex: Refrigerante Litro não tem foto disponível ainda).
+// Mapeia cada foto (já enviada pelo dono da Jully Burguer, e já publicada
+// dentro do próprio site em /public/fotos-produtos) para o produto certo,
+// por categoria + nome. Não usa o Storage do Firebase — ele passou a exigir
+// plano pago (Blaze), então aqui a gente aponta direto pro arquivo estático
+// que já sobe junto com o site a cada deploy. Não inventa foto para produtos
+// que não vieram nessa leva (ex: Refrigerante Litro não tem foto ainda).
 const FOTOS = [
   { categoria: "Hambúrgueres", nome: "Hambúrguer", arquivo: "hamburguer.jpg" },
   { categoria: "Hambúrgueres", nome: "X-Burguer", arquivo: "x-burguer.jpg" },
@@ -37,12 +39,6 @@ export default function AplicarFotosCardapio() {
     const linhas = [];
     setLog([]);
 
-    if (!storage) {
-      setLog([{ ok: false, texto: "Storage não está disponível — ative o Storage no Firebase primeiro." }]);
-      setRodando(false);
-      return;
-    }
-
     try {
       const snapshot = await getDocs(collection(db, "produtos"));
       const produtos = snapshot.docs.map((d) => ({ id: d.id, ...d.data() }));
@@ -64,17 +60,9 @@ export default function AplicarFotosCardapio() {
         }
 
         try {
-          const resposta = await fetch(`/fotos-produtos/${foto.arquivo}`);
-          if (!resposta.ok) {
-            throw new Error(`arquivo da foto não encontrado (status ${resposta.status})`);
-          }
-          const blob = await resposta.blob();
-
-          const referencia = ref(storage, `produtos/${produto.id}.jpg`);
-          await uploadBytes(referencia, blob);
-          const url = await getDownloadURL(referencia);
-
-          await updateDoc(doc(db, "produtos", produto.id), { imagem: url });
+          await updateDoc(doc(db, "produtos", produto.id), {
+            imagem: `/fotos-produtos/${foto.arquivo}`,
+          });
 
           linhas.push({ ok: true, texto: `${foto.nome} — foto aplicada` });
         } catch (erro) {
